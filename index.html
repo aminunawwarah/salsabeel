@@ -1,0 +1,295 @@
+<!--This project started on 26th June, 2023. Microsoft Visual Studio Code was used as the text
+editor for most part of the project. Some other parts were written in Atom-->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>Salsabeel Islamic School</title>
+
+    <!--CSS files import-->
+    <link rel="stylesheet" href="styles/fonts-families.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/images-slides.css">
+    <link rel="stylesheet" href="styles/media-queries.css">
+
+    <!--JS Files import-->
+    <script src="scripts/URIs/school-address-uri.js" defer></script>
+    <script src="scripts/URIs/transparent-logo-uri.js" defer></script>
+    <script src="scripts/typed.js" defer></script>
+    <script src="scripts/teachers-data.js" defer></script>
+    <script src="scripts/records.js" defer></script>
+    <script src="scripts/school-classes.js" defer></script>
+    <script src="scripts/index.js" defer></script>
+    <script src="scripts/images-slide.js" defer></script>
+    <script src="scripts/login-check.js" defer></script>
+</head>
+<body>
+    <p window-width style="font-size: 40px; position: fixed; z-index: 1;"></p>
+    <header>
+        <img class="logo" src="imgs/Linear Logo.png">
+        <nav class="site-navigations">
+            <a href="#home" class="link">HOME</a>
+            <a href="#programmes" class="link">PROGRAMMES</a>
+            <a href="#about" class="link">ABOUT US</a>
+            <a href="#vision" class="link">OUR VISION</a>
+            <a href="#mission" class="link">OUR MISSION</a>
+            <a href="#contact" class="link">CONTACT US</a>
+            <img src="imgs/close.png" alt="" class="close-menu-icon" draggable="false">
+        </nav>
+        <img src="imgs/login.jpg" alt="" class="login-icon">
+        <img src="imgs/menu.png" alt="" class="menu-icon">
+    </header>
+    <div class="login-form">
+        <h2>Log in to your school account</h2>
+        <img src="imgs/close.png" alt="" class="close-login-icon" draggable="false">
+        <label for="username">Enter your username</label><br>
+        <input username-field id="username" type="text" placeholder="Your username here..."><br>
+        <label for="password">Enter your password</label><br>
+        <input password-field id="password" type="password" placeholder="Your password here..."><br>
+        <button login-button>Log in</button>
+    </div>
+    <div class="cover-image">
+        <div class="cover-image-content">
+            <p class="welcome-text">Welcome to SALSABEEL TAHFEEZ COLLEGE</p>
+            <p class="cover-text">
+                The brighter future for every child
+            </p>
+            <button learn-more class="learn-more-button">Learn more</button>
+        </div>
+    </div>
+    <section id="home">
+        <div class="cards">
+            <div class="card observe">
+                <div class="card-content one">
+                    <p class="card-title">Teachers</p>
+                    <p class="card-digit">9</p>
+                </div>
+            </div>
+            <div class="card observe">
+                <div class="card-content two">
+                    <p class="card-title">Classes</p>
+                    <p class="card-digit">6</p>
+                </div>
+            </div>
+            <div class="card observe">
+                <div class="card-content three">
+                    <p class="card-title">Working Hours</p>
+                    <p class="card-digit">8</p>
+                </div>
+            </div>
+            <div class="teachers-information">
+                <h2>All Teachers</h2>
+                <img src="imgs/close.png" alt="" class="close-teacher-info-icon">
+                <div class="teachers-names">
+                </div>
+            </div>
+            <div class="classes-information">
+                <h2>All Classes</h2>
+                <img src="imgs/close.png" alt="" class="close-class-info-icon">
+                <div class="all-classes">
+                </div>
+            </div>
+            <div class="working-hours-information">
+                <h2>Working Hours</h2>
+                <img src="imgs/close.png" alt="" class="close-working-hours-icon">
+                <div class="working-hours">
+                    <h3>Nursery and Primary Section</h3>
+                    <p>The working hours for the nursery and primary section is 7 hours except for Fridays. Normally,
+                        the nursery and primary students come before 8:00 am and close at 3:00 pm. On Fridays, they close at
+                        12:00 pm.
+                    </p>
+                    <h3>College Section</h3>
+                    <p>For the college section, their working hours is approximately 8 hours except for Fridays.
+                        Normally, the college students come before 8:00 am and close around 4:00 pm. On Fridays, they
+                        close at 12:15 pm.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="intersector">
+          <div class="side-note observe">
+            No nation can prosper in life without education.
+          </div>
+        </div>
+    </section>
+    <section class="welcome-section">
+      <p class="welcome-note">
+        Welcome!
+      </p>
+      <p class="note">
+        We're inspiring the next generation of the brightest minds.
+      </p>
+      <img src="imgs/Qur’an 2.png" alt="" class="quran">
+    </section>
+    <section id="programmes">
+        <div class="section-content">
+          <h2 class="section-title">Our Programmes</h2>
+          <div class="content-columns">
+            <div class="column">
+              <img class="column-image observe" src="imgs/open-qur'an.jpg" alt="">
+              <div class="column-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus sed nobis aperiam quasi,
+                  non suscipit! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi sunt laborum
+                  voluptate, sequi atque in?
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="column-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus sed nobis aperiam quasi,
+                  non suscipit! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi sunt laborum
+                  voluptate, sequi atque in?
+                </p>
+              </div>
+              <img class="column-image observe" src="imgs/Learn.png" alt="">
+            </div>
+            <div class="column">
+              <img class="column-image observe" src="imgs/closed-qur'an.jpg" alt="">
+              <div class="column-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus sed nobis aperiam quasi,
+                  non suscipit! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi sunt laborum
+                  voluptate, sequi atque in?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section>
+      <div class="section-content">
+        <h2 class="section-title">The School Heads</h2>
+        <div class="image-slider">
+          <p class="previous-icon">&lt;</p>
+          <ul class="slider-content">
+            <li class="images">
+              <img draggable="false" src="imgs/nasir.jpg" alt="" class="image">
+              <p class="title">Nasir Al-Qahtamy</p>
+              <p class="post">Qur'an Reciter</p>
+            </li>
+            <li class="images">
+              <img draggable="false" src="imgs/muhammad.jpg" alt="" class="image">
+              <p class="title">Muhammad Siddiq</p>
+              <p class="post">Qur'an Reciter</p>
+            </li>
+            <li class="images">
+              <img draggable="false" src="imgs/bander.jpg" alt="" class="image">
+              <p class="title">Bander Balila</p>
+              <p class="post">Qur'an Reciter</p>
+            </li>
+            <li class="images">
+              <img draggable="false" src="imgs/wadi.jpg" alt="" class="image">
+              <p class="title">Wadi' Al-Yamany</p>
+              <p class="post">Qur'an Reciter</p>
+            </li>
+            <li class="images">
+              <img draggable="false" src="imgs/ra'ad.jpg" alt="" class="image">
+              <p class="title">Ra'ad Al-Kurdy</p>
+              <p class="post">Qur'an Reciter</p>
+            </li>
+            <li class="images">
+              <img draggable="false" src="imgs/open-qur'an.jpg" alt="" class="image">
+              <p class="title">Open Qur'an</p>
+              <p class="post">Qur'an</p>
+            </li>
+            <li class="images">
+              <img draggable="false" src="imgs/closed-qur'an.jpg" alt="" class="image">
+              <p class="title">Closed Qur'an</p>
+              <p class="post">Qur'an</p>
+            </li>
+          </ul>
+          <p class="next-icon">&gt;</p>
+        </div>
+      </div>
+    </section>
+    <section class="widget">
+      <p class="widget-text observe">
+        We teach the Holy Book of Allah.
+      </p>
+      <img src="imgs/Qur’an 1.png" alt="" class="quran">
+    </section>
+    <section id="about">
+      <div class="section-content">
+        <h2 class="section-title">About Us</h2>
+        <p class="content-text">
+          The college was founded by Imam Ridwanullah Jamiu as one of his ingenious endeavors in 
+          mentoring young minds regarding the memorization of the Holy Book and also to provide an
+          atmosphere where first school leavers can successfully attain both the Islamic and secular
+          education simultaneously at the expense of neither of them both. <br>
+          At Salsabeel Islamic School, we offer a 3-year course for primary school graduates to
+          memorize the entire Qur'an in approximately 2 years and engage them in a rigorous revision
+          exercise for 1 year after which a graduation program is conducted to commemorate the success
+          of the newly produced Imams of the Ummah.
+        </p>
+      </div>
+    </section>
+    <section class="widget">
+      <p class="large-box observe">
+        We foster a caring culture based on mutual respect, co-operation and support.
+      </p>
+      <img src="imgs/Qur’an 3.png" alt="" class="quran">
+    </section>
+    <section id="vision">
+      <div class="section-content">
+        <h2 class="section-title">Our Vision</h2>
+        <p class="content-text">
+          Salsabeel Islamic School aims at an epoch-making Islamic center where people can acquire and learn the 
+          knowledge of Islam through the mastering and memorization of the Holy Qur'an and traditions of the prophet
+          Muhammad (peace of Allah be upon him); nurturing and encouraging people from all corners of life, strengthening 
+          their belief in Allah, developing their innate creativity and inquisitive nature in the pursuance of truth
+          and guidance while anchoring their hearts and souls in a moral framework of a God-centered life.
+        </p>
+      </div>
+    </section>
+    <section id="mission">
+      <div class="section-content">
+        <h2 class="section-title">Our Mission</h2>
+        <p class="content-text">
+          To prepare Huffaz who would carry the Book of Allah and the sayings of the prophet Muhammad (peace 
+          of Allah be upon him) in their hearts, understand them, implement their teachings and share them with others.
+        </p>
+      </div>
+    </section>
+    <section>
+      <div class="section-content">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery">
+          <img class="gallery-image observe" src="imgs/Jss 1-min.png" alt="">
+          <img class="gallery-image observe" src="imgs/Jss 2-min.png" alt="">
+          <img class="gallery-image observe" src="imgs/Prize 1-min.png" alt="">
+          <img class="gallery-image observe" src="imgs/Prize 2-min.png" alt="">
+          <img class="gallery-image observe" src="imgs/Prize 3-min.png" alt="">
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="section-content">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="content-text">
+          If you have any suggession or complaint concerning our college activities or the college website, please feel free and send
+          us a message.
+        </p>
+        <div class="contact-form" hidden>
+          <h3>Send us a message</h3>
+          <input type="text" placeholder="Your name here...">
+          <input type="number" placeholder="Your valid phone number...">
+          <textarea rows="8" cols="80" placeholder="Enter your complaint(s)/suggession(s)"></textarea>
+          <button class="submit-complain">Send</button>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <span>&copy;2023 Salsabeel Tahfeez College</span><br>
+      <span>Jigawa State, Dutse</span><br>
+      <span>Kasarau Quarters</span><br>
+      <span>Behind Muslim Corpers Secretariat</span><br>
+      <span>Kiyawa Road, Dutse, Jigawa State</span><br>
+      <span>Telephone: +234-805-923-3446, +234-813-887-9937</span><br>
+      <span>Email: salsabeelislamicschool@gmail.com</span>
+    </footer>
+</body>
+</html>

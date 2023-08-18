@@ -1,0 +1,112 @@
+.image-slider {
+    padding: 1rem 1rem;
+    position: relative;
+    
+}
+
+ul.slider-content {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 10px);
+    gap: 14px;
+    overflow: auto;
+    user-select: none;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+ul.slider-content::-webkit-scrollbar {
+    display: none;
+}
+
+li.images {
+    list-style: none;
+    border-radius: 5px;
+    height: 18rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #C0C0C0;
+    cursor: pointer;
+    scroll-snap-align: start;
+}
+
+.image {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    transition: 0.6s ease all;
+}
+
+.title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: 0.6s ease all;
+}
+
+.previous-icon, .next-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: #686868;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 0.7rem;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.5s ease all;
+}
+
+.previous-icon {
+    left: -8px;
+}
+
+.next-icon {
+    right: -8px;
+}
+
+.previous-icon:hover, .next-icon:hover {
+    background: #C08414;
+    font-weight: bold;
+}
+
+.previous-icon:hover {
+    padding-right: 0.9rem;
+}
+
+.next-icon:hover {
+    padding-left: 0.9rem;
+}
+
+@media screen and (max-width: 1150px) {
+    .title {
+        font-size: 1.2rem;
+    }
+    .images {
+        height: auto;
+    }
+    .image {
+        width: 10rem;
+        height: 10rem;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    ul.slider-content {
+        grid-auto-columns: calc((100% / 2) - 9px);
+    }
+    .image {
+        width: 12rem;
+        height: 12rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    ul.slider-content {
+        grid-auto-columns: 100%;
+    }
+}
