@@ -1,0 +1,16 @@
+<%- include('./partials/header.ejs') %>
+
+    <h1>HELLO, OVER THERE!</h1>
+    <h2>Students Registration</h2>
+
+    <form action="done" method="POST">
+        <label for="student_name">Student's name</label><br>
+        <input id="student_name" type="text" name="student_name" placeholder="Name of the student" required><br>
+        <label for="student_class">Student's class</label><br>
+        <input id="student_class" type="text" name="student_class" placeholder="Student's class" required><br>
+        <label for="admission_date">Student's admission date</label><br>
+        <input id="admission_date" type="date" placeholder="Admission date" name="admission_date" required><br>
+        <button type="submit">Submit</button>
+    </form>
+
+<%- include('./partials/footer.ejs') %>
