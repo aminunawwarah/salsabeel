@@ -6,7 +6,7 @@ const root = './views'
 
 function startServer() {
     app.set('view engine', 'ejs');
-    app.listen(3000);
+    app.listen(process.env.PORT);
     app.use(express.static('rsc'));
     app.use(express.urlencoded({ extended: true }));
     app.get('/', (req, res) => res.render('index'));
