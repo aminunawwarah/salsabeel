@@ -1,3 +1,3 @@
-const router = require('./modules/router');
+const app = require('./custom_modules/site_server');
 
-router.startServer();
+app.start();
