@@ -15,7 +15,11 @@ thead {
 }
 
 th, td {
-    width: 40%;
+    width: 25%;
+}
+
+table {
+    margin: 1rem 0;
 }
 
 input, select {
@@ -53,6 +57,20 @@ button:hover {
     color: #494049;
 }
 
+.edit-field {
+    width: 10rem;
+}
+
+.edit-btn {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 0.5rem;
+}
+
+.result-update {
+    display: none;
+}
+
 .subject-selection {
     margin-top: 1rem;
     display: grid;
@@ -68,7 +86,7 @@ button:hover {
     grid-template-columns: repeat(3, 30%);
     margin: 1rem 0;
 }
-.process-new-result-form {
+.process-result-form {
     display: flex;
     justify-content: space-between;
 }
@@ -221,6 +239,7 @@ button:hover {
 .subhead {
     font-family: 'Segoe UI Semilight', Nunito;
     font-size: 1.6rem;
+    margin-bottom: 0.5rem;
     color: #555555;
 }
 

@@ -1,9 +1,11 @@
 const srmsHandler = require('./handlers/srms_handler');
+const resultUploadHandler = require('./handlers/result_upload_handler');
+const resultFetchHandler = require('./handlers/result_fetch_handler');
 const signinHandler = require('./handlers/signin_handler');
 const signupHandler = require('./handlers/signup_handler');
 const paymentHandler = require('./handlers/payment_handler');
 const messageHandler = require('./handlers/message_handler');
-const fileUploadHandler = require('./handlers/files_upload_handler')
+const fileUploadHandler = require('./handlers/files_upload_handler');
 const removeUserHandler = require('./handlers/remove_user_handler');
 const studentRegistration = require('./handlers/student_registration_handler');
 const removeStudentHandler = require('./handlers/remove_student_handler');
@@ -62,6 +64,14 @@ function start() {
 
     app.post('/remove_user', (req, res) => {
         removeUserHandler.removeUser(req, res);
+    });
+
+    app.post('/result_upload', (req, res) => {
+        resultUploadHandler.saveResult(req, res);
+    });
+
+    app.post('/result_fetch', (req, res) => {
+        resultFetchHandler.fetchResult(req, res);
     });
 
     app.post('/file_upload', (req, res) => {

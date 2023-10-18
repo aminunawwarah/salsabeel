@@ -23,22 +23,23 @@
         </div>
         <div class="wrapper">
             <p class="subhead">Basic Information</p>
-            <div class="process-new-result-form">
+            <div class="process-result-form">
                 <div>
                     <label for="student-name">Student's name<sup>*</sup></label><br>
                     <input id="student-name" type="text" placeholder="Enter the student's fullname...">
                 </div>
                 <div>
-                    <label for="student-class">Class<sup>*</sup></label><br>
-                    <select id="student-class">
-                        <% classes.forEach(ele => { %>
-                            <option> <%= ele %> </option>
-                        <% }) %>
+                    <label for="examination-year">Examination Year<sup>*</sup></label><br>
+                    <select id="examination-year">
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
                     </select>
                 </div>
                 <div>
-                    <label for="student-term">Examination term<sup>*</sup></label><br>
-                    <select id="student-term">
+                    <label for="examination-term">Examination term<sup>*</sup></label><br>
+                    <select id="examination-term">
                         <option>First term</option>
                         <option>Second term</option>
                         <option>Third term</option>
@@ -120,16 +121,23 @@
         </div>
         <div class="wrapper result-preview">
             <p class="subhead">Result Preview</p>
+            <p>Student's name: <b><span student-name-text></span></b></p>
+            <p>Examination year: <b><span examination-year-text></span></b></p>
             <table width="100%">
                 <thead>
                     <th>Subjects</th>
                     <th>CA Scores</th>
                     <th>Examination Scores</th>
+                    <th>Total Scores</th>
+                    <th>Grades</th>
                 </thead>
                 <tbody preview-table-body>
 
                 </tbody>
             </table>
+            <p>Total Score: <b><span total-score-text></span></b></p>
+            <p>Average: <b><span average-text></span></b></p>
+            <button upload-result>Upload Result</button>
         </div>
     </div>
     <div class="information">
@@ -139,29 +147,49 @@
         </div>
         <div class="wrapper">
             <p class="subhead">Basic Information</p>
-            <div class="process-new-result-form">
+            <div class="process-result-form">
                 <div>
-                    <label for="student-name">Student's name<sup>*</sup></label><br>
-                    <input id="student-name" type="text" placeholder="Enter the student's fullname...">
+                    <label for="name">Student's name<sup>*</sup></label><br>
+                    <input id="name" type="text" placeholder="Enter the student's fullname...">
                 </div>
                 <div>
-                    <label for="student-class">Class<sup>*</sup></label><br>
-                    <select id="student-class">
-                        <% classes.forEach(ele => { %>
-                            <option> <%= ele %> </option>
-                        <% }) %>
+                    <label for="exam-year">Examination Year<sup>*</sup></label><br>
+                    <select id="exam-year">
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
                     </select>
                 </div>
                 <div>
-                    <label for="student-term">Examination term<sup>*</sup></label><br>
-                    <select id="student-term">
+                    <label for="exam-term">Examination term<sup>*</sup></label><br>
+                    <select id="exam-term">
                         <option>First term</option>
                         <option>Second term</option>
                         <option>Third term</option>
                     </select>
                 </div>
             </div>
-            <button start-update>Make Update</button>
+            <button fetch-result>Fetch Result</button>
+        </div>
+        <div class="wrapper result-update">
+            <p class="subhead">Modify Result</p>
+            <p>Student's name: <b><span class="student-name-text"></span></b></p>
+            <p>Examination year: <b><span class="examination-year-text"></span></b></p>
+            <p>Examination term: <b><span class="examination-term-text"></span></b></p>
+            <table>
+                <thead>
+                    <th>Subjects</th>
+                    <th>CA Scores</th>
+                    <th>Examination Scores</th>
+                    <th>Total Scores</th>
+                    <th>Grades</th>
+                </thead>
+                <tbody update-table>
+
+                </tbody>
+            </table>
+            <button update-result>Update Result</button>
         </div>
     </div>
     <div class="information">
