@@ -8,6 +8,11 @@ body {
     font-size: 20px;
     font-family: Nunito, Verdana;
     background: #C0C0C0;
+    position: relative;
+}
+
+table {
+    overflow-x: scroll;
 }
 
 thead {
@@ -67,17 +72,17 @@ button:hover {
     margin-left: 0.5rem;
 }
 
-.result-update {
-    display: none;
-}
-
 .subject-selection {
     margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(3, 30%);
 }
 
-.subjects-scores-table, .result-preview {
+.subjects-scores-table, 
+.result-update,
+.result-information,
+.result-preview,
+.result-view {
     display: none
 }
 
@@ -86,6 +91,7 @@ button:hover {
     grid-template-columns: repeat(3, 30%);
     margin: 1rem 0;
 }
+
 .process-result-form {
     display: flex;
     justify-content: space-between;
@@ -104,6 +110,7 @@ button:hover {
 }
 
 .top-head {
+    position: relative;
     padding: 1rem;
     background: #474747;
     color: #E7E7E7;
@@ -120,55 +127,6 @@ button:hover {
     font-size: 3rem;
 }
 
-.cards {
-    margin: 1rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.card {
-    width: 20rem;
-    height: 9rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.card-content {
-    width: 90%;
-    height: 90%;
-    padding: 1rem;
-    font-family: Nunito;
-    transition: 0.5s ease all;
-    cursor: pointer;
-    border: 1px solid #362134;
-    border-radius: 5px;
-}
-
-.card-content:hover {
-    width: 100%;
-    height: 100%;
-} 
-
-.card-title, .card-details {
-    font-size: 1.7rem;
-    font-weight: bold;
-    color: #E7E7E7;
-}
-
-.card-details {
-    font-size: 1.5rem;
-}
-
-.processed-results-card {
-    background: #966822;
-}
-
-.timetables {
-    background: #399404;
-}
-
 .side-link {
     list-style-type: none;
     color: #E7E7E7;
@@ -182,14 +140,14 @@ button:hover {
     background: #E7E7E7;
     color: #525252;
     border-radius: 5px;
-    padding-left: 2rem;
+    padding-left: 1.7rem;
 }
 
 .navigations-side {
-    
-    position: fixed;
+    position: absolute;
+    left: -40rem;
     z-index: 1;
-    width: 20%;
+    width: 25%;
     height: 95vh;
     padding: 1rem;
     background: #808080D0;
@@ -205,9 +163,8 @@ button:hover {
 }
 
 .unhide-navigation-icon {
-    position: fixed;
-    left: 1rem;
-    top: 6rem;
+    position: absolute;
+    right: 1rem;
     cursor: pointer;
     width: 2rem;
 }
@@ -252,4 +209,81 @@ button:hover {
 
 .close-information:hover {
     transform: rotate(90deg);
+}
+
+@media screen and (max-width: 1190px) {
+    .navigations-side {
+        width: 30%;
+    }
+    input[type="text"],
+    select {
+        width: 17rem;
+        height: 3rem;
+    }
+    .edit-field {
+        width: 7rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .navigations-side {
+        width: 35%;
+    }
+    .welcome-text {
+        font-size: 2.5rem;
+    }
+    .process-result-form {
+        flex-direction: column;
+    }
+    .process-result-form
+    input[type="text"],
+    select {
+        width: 100%;
+        height: 3.4rem;
+    }
+}
+
+@media screen and (max-width: 855px) {
+    .welcome-text {
+        font-size: 2.3rem;
+    }
+    .navigations-side {
+        width: 40%;
+    }
+    .subject-selection {
+        grid-template-columns: repeat(2, 50%);
+    }
+    .edit-btn {
+        width: 2.3rem;
+        height: 2.3rem;
+        margin-left: 0.3rem;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .welcome-text {
+        font-size: 2rem;
+    }
+    .navigations-side {
+        width: 50%;
+    }
+    input[type="text"] {
+        width: 13rem;
+        height: 2.5rem;
+        font-size: 0.8rem;
+    }
+    .edit-field {
+        width: 3rem;
+        height: 2rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .welcome-text {
+        font-size: 1.7rem;
+    }
+    .srms-top-text {
+        font-size: 1.5rem;
+    }
 }

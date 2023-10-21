@@ -12,6 +12,7 @@ function fetchResult() {
             alert('The result is not found.')
         else {
             resultUpdate.style.display = 'block';
+            resultDataValue = resultData;
             showResultData(resultData);
         }
     }).catch(err => alert('Something went wrong and the operation did not complete successfully.'));
@@ -26,12 +27,109 @@ function showResultData(data) {
         return `
             <tr>
                 <td>${subject}</td>
-                <td><input type="number" class="edit-field test" readonly value="${data.testScores[index]}"><button class="edit-btn test">Edit</button></td>
-                <td><input type="number" class="edit-field exam" readonly value="${data.examScores[index]}"><button class="edit-btn exam">Edit</button></td>
+                <td><input type="number" class="edit-field test-field" readonly value="${data.testScores[index]}"><button class="edit-btn test-btn">Edit</button></td>
+                <td><input type="number" class="edit-field exam-field" readonly value="${data.examScores[index]}"><button class="edit-btn exam-btn">Edit</button></td>
                 <td>${data.totalScores[index]}</td>
                 <td>${data.grades[index]}</td>
             </tr>`
     }).join('');
+    totalText.textContent = data.total;
+    averageTextValue.textContent = data.average;
+    extractModificationTools();
+}
+
+function updateResultData(data) {
+    updateTable.innerHTML = resultDataValue.selectedSubjects.map((subject, index) => {
+        return `
+            <tr>
+                <td>${subject}</td>
+                <td><input type="number" class="edit-field test-field" readonly value="${data.testScores[index]}"><button class="edit-btn test-btn">Edit</button></td>
+                <td><input type="number" class="edit-field exam-field" readonly value="${data.examScores[index]}"><button class="edit-btn exam-btn">Edit</button></td>
+                <td>${data.totalScores[index]}</td>
+                <td>${data.grades[index]}</td>
+            </tr>`
+    }).join('');
+    totalText.textContent = data.total;
+    averageTextValue.textContent = data.average;
+    extractModificationTools();
+}
+
+function extractModificationTools() {
+    testFields = document.querySelectorAll('.test-field');
+    examFields = document.querySelectorAll('.exam-field');
+    editTestBtn = document.querySelectorAll('.test-btn');
+    editExamBtn = document.querySelectorAll('.exam-btn');
+
+    editTestBtn.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            testFields[index].removeAttribute('readonly');
+        });
+    });
+
+    editExamBtn.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            examFields[index].removeAttribute('readonly');
+        });
+    });
+}
+
+function updateResultScores() {
+    var testScores = [];
+    var examScores = [];
+    var totalScores = [];
+    var grades = [];
+    var total = 0;
+    var average;
+
+    for (var i = 0; i < testFields.length; i++) {
+        testScores[i] = Number(testFields[i].value);
+        examScores[i] = Number(examFields[i].value);
+        totalScores[i] = testScores[i] + examScores[i];
+    }
+
+    for (var i = 0; i < totalScores.length; i++) {
+        if (totalScores[i] >= 70)
+            grades[i] = 'A';
+        else if (totalScores[i] >= 60)
+            grades[i] = 'B';
+        else if (totalScores[i] >= 50)
+            grades[i] = 'C';
+        else
+            grades[i] = 'F'
+    }
+
+    for (var i = 0; i < totalScores.length; i++) {
+        total += totalScores[i];
+    }
+
+    average = total / totalScores.length;
+    data = {
+        totalScores,
+        examScores,
+        testScores,
+        grades,
+        total,
+        average,
+        studentName: resultDataValue.studentName,
+        selectedSubjects: resultDataValue.selectedSubjects,
+        examinationTerm: resultDataValue.examinationTerm,
+        examinationYear: resultDataValue.examinationYear
+    }
+    updateResultData(data);
+    uploadUpdatedResult(data);
+}
+
+function uploadUpdatedResult(data) {
+    fetch('result_update', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json()).then(({ updated }) => {
+        if (!updated)
+            alert('The result is not updated.');
+        else
+            alert('The result is updated successfully.');
+    }).catch(err => alert('Something went wrong and the operation did not complete successfully.'));
 }
 
 const nameField = document.getElementById('name');
@@ -44,11 +142,25 @@ const updateTable = document.querySelector('[update-table]');
 const studentText = document.querySelector('.student-name-text');
 const yearText = document.querySelector('.examination-year-text');
 const termText = document.querySelector('.examination-term-text');
+const totalText = document.querySelector('[total]');
+const averageTextValue = document.querySelector('[average]');
 var result;
+var testFields;
+var examFields;
+var editTestBtn;
+var editExamBtn;
+var resultDataValue;
+var data;
 
 fetchResultButton.addEventListener('click', () => {
     fetchResultButton.style.pointerEvents = 'none';
     fetchResult();
     fetchResultButton.style.pointerEvents = 'all';
 
+});
+
+updateResultButton.addEventListener('click', () => {
+    fetchResultButton.style.pointerEvents = 'none';
+    updateResultScores();
+    fetchResultButton.style.pointerEvents = 'all';
 });

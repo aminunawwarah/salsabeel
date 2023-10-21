@@ -1,0 +1,47 @@
+{
+	"studentName": "uman sani",
+	"examinationYear": "2021",
+	"examinationTerm": "First term",
+	"total": 0,
+	"average": 0,
+	"selectedSubjects": [
+		"Agricultural Science",
+		"Civic Education",
+		"English",
+		"Hadith",
+		"Islamic Studies",
+		"Qur'an"
+	],
+	"testScores": [
+		0,
+		0,
+		0,
+		0,
+		0,
+		0
+	],
+	"examScores": [
+		0,
+		0,
+		0,
+		0,
+		0,
+		0
+	],
+	"totalScores": [
+		0,
+		0,
+		0,
+		0,
+		0,
+		0
+	],
+	"grades": [
+		"F",
+		"F",
+		"F",
+		"F",
+		"F",
+		"F"
+	]
+}

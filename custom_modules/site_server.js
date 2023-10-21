@@ -1,6 +1,9 @@
 const srmsHandler = require('./handlers/srms_handler');
 const resultUploadHandler = require('./handlers/result_upload_handler');
 const resultFetchHandler = require('./handlers/result_fetch_handler');
+const resultUpdateHandler = require('./handlers/result_update_handler');
+const deleteResultHandler = require('./handlers/delete_result_handler');
+const viewResultsHandler = require('./handlers/view_results_handler');
 const signinHandler = require('./handlers/signin_handler');
 const signupHandler = require('./handlers/signup_handler');
 const paymentHandler = require('./handlers/payment_handler');
@@ -17,7 +20,7 @@ function start() {
     app.use(express.json());
     app.use(express.static('rsc'));
     app.set('view engine', 'ejs');
-    app.listen(process.env.PORT || 3000);
+    app.listen(3000);
     
     app.get('/', (req, res) => res.render('index'));
     app.get('/contact', (req, res) => res.render('contact'));
@@ -26,6 +29,7 @@ function start() {
     app.get('/programmes', (req, res) => res.render('programmes'));
     app.get('/signin', (req, res) => res.render('signin', { exists: true, incorrectPassword: false }));
     app.get('/recovery', (req, res) => res.render('account_recovery'));
+    
     app.get('/results_management_system', (req, res) => {
         srmsHandler.retrieveStudents(res);
     });
@@ -70,6 +74,17 @@ function start() {
         resultUploadHandler.saveResult(req, res);
     });
 
+    app.post('/view_results', (req, res) => {
+        viewResultsHandler.sendResults(req, res);
+    });
+
+    app.delete('/delete_result', (req, res) => {
+        deleteResultHandler.deleteResult(req, res);
+    });
+
+    app.post('/result_update', (req, res) => {
+        resultUpdateHandler.updateResult(req, res);
+    })
     app.post('/result_fetch', (req, res) => {
         resultFetchHandler.fetchResult(req, res);
     });

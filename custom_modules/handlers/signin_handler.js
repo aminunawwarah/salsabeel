@@ -42,7 +42,7 @@ function validateSigin(req, res) {
                                             res.render('admin', { classes, messages });
                                             break;
                                         case 'finance':
-                                            res.render('teachers', { 
+                                            res.render('finance', { 
                                                 username, 
                                                 messages, 
                                                 submissionRequired: true, 

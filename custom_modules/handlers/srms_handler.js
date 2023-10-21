@@ -1,8 +1,8 @@
 const fs = require('fs');
 
 function retrieveStudents(res) {
-    const classes = fs.readdirSync('./classes');
-    res.render('srms', { classes });
+    const resultLabels = fs.readdirSync('./results');
+    res.render('srms', { resultLabels });
 }
 
 module.exports = { retrieveStudents };

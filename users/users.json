@@ -26,5 +26,12 @@
 		"email": "fatima@noor.com",
 		"number": "453334533",
 		"type": "staff"
+	},
+	{
+		"username": "adnan umar",
+		"password": "adnan",
+		"email": "adnan@noor.com",
+		"number": "445664433",
+		"type": "parent"
 	}
 ]

@@ -1,3 +1,9 @@
+const windowWidth = document.querySelector('[window-width]');
+
+window.addEventListener('resize', () => {
+    windowWidth.innerText = window.innerWidth;
+});
+
 function extractSelectedSubjects(checkboxesContainer) {
     var tempSubjects = []
     for (var i = 0; i < checkboxesContainer.length; i++) {
@@ -142,6 +148,8 @@ processResultButton.addEventListener('click', () => {
 
     if (!studentName)
         alert("Enter the student's name.");
+    else if (selectedSubjects.length < 5)
+        alert('Please select a minumum of 5 subjects.');
     else {
         calculateScores();
         if (testScores.some(score => score > 40 || score < 0) || examScores.some(score => score > 60 || score < 0)) {
@@ -161,11 +169,11 @@ unhideNavigationSideIcon.addEventListener('click', () => {
 });
 
 hideNavigationSideIcon.addEventListener('click', () => {
-    navigationSide.style.left = '-20rem';
+    navigationSide.style.left = '-40rem';
 });
 
 sideNavigationLinks.forEach(link => {
     link.addEventListener('click', () => {
-        navigationSide.style.left = '-20rem';
+        navigationSide.style.left = '-40rem';
     });
 });

@@ -1,18 +1,19 @@
 <%- include('./partials/srms_headers.ejs') %>
 
     <div class="top-head">
+        <img class="unhide-navigation-icon" src="imgs/menu.png" alt="Show navigation">
         <p class="srms-top-text">Students' Results Management System</p>
     </div>
+    <p window-width style="font-size: 1.5rem; font-weight: bold; position: fixed"></p>
     <div class="navigations-side">
         <img class="hide-navigation-icon" src="imgs/close.png" alt="Hide navigation icon">
         <ul>
             <li class="side-link">Process a new result</li>
-            <li class="side-link">Update existing result</li>
-            <li class="side-link">View result</li>
-            <li class="side-link">Upload result</li>
+            <li class="side-link">Update an existing result</li>
+            <li class="side-link">View results</li>
+            <li class="side-link">Delete a result</li>
         </ul>
     </div>    
-    <img class="unhide-navigation-icon" src="imgs/menu.png" alt="Show navigation">
     <p class="welcome-text">
         Welcome to Salsabeel Tahfeez College SRMS
     </p>
@@ -142,7 +143,7 @@
     </div>
     <div class="information">
         <div class="information-header">
-            <p class="header-title">Update Existing Result</p>
+            <p class="header-title">Update an Existing Result</p>
             <img draggable="false" class="close-information" src="imgs/close.png">
         </div>
         <div class="wrapper">
@@ -150,7 +151,11 @@
             <div class="process-result-form">
                 <div>
                     <label for="name">Student's name<sup>*</sup></label><br>
-                    <input id="name" type="text" placeholder="Enter the student's fullname...">
+                    <select id="name">
+                        <% resultLabels.forEach(label => { %>
+                            <option> <%= label.toUpperCase() %> </option>
+                        <% }) %>
+                    </select>
                 </div>
                 <div>
                     <label for="exam-year">Examination Year<sup>*</sup></label><br>
@@ -189,34 +194,105 @@
 
                 </tbody>
             </table>
+            <p>Total Score: <b><span total></span></b></p>
+            <p>Average: <b><span average></span></b></p>
             <button update-result>Update Result</button>
         </div>
     </div>
-    <div class="information">
+    <div class="information result-information">
         <div class="information-header">
-            <p class="header-title">View Result</p>
+            <p class="header-title">View Results</p>
             <img draggable="false" class="close-information" src="imgs/close.png">
         </div>
-        <div>
-            <div class="cards">
-                <div class="card">
-                    <div class="card-content processed-results-card">
-                        <p class="card-title">Processed Results</p>
-                        <p class="card-details">4</p>
-                    </div>
+        <div class="wrapper">
+            <p class="subhead">Basic Information</p>
+            <div class="process-result-form">
+                <div>
+                    <label for="student-name-field">Student name</label><br>
+                    <select id="student-name-field">
+                        <% resultLabels.forEach(label => { %>
+                            <option> <%= label.toUpperCase() %> </option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div>
+                    <label for="year-of-exam">Examination Year</label><br>
+                    <select id="year-of-exam">
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="term-of-exam">Examination term</label><br>
+                    <select id="term-of-exam">
+                        <option>First term</option>
+                        <option>Second term</option>
+                        <option>Third term</option>
+                    </select>
                 </div>
             </div>
+            <button retrieve-result>Fetch Result</button>
+        </div>
+        <div class="wrapper result-view">
+            <p class="subhead">Result Information</p>
+            <p>Student's name: <b><span name-of-student></span></b></p>
+            <p>Examination year: <b><span year-of-examination></span></b></p>
+            <p>Examination term: <b><span term-of-examination></span></b></p>
+            <table>
+                <thead>
+                    <th>Subjects</th>
+                    <th>CA Scores</th>
+                    <th>Examination Scores</th>
+                    <th>Total Scores</th>
+                    <th>Grades</th>
+                </thead>
+                <tbody result-view-table>
+
+                </tbody>
+            </table>
+            <p>Average: <b><span examination-average></span></b></p>
+            <p>Total: <b><span examination-total></span></b></p>
+            <button download-result>Download</button>
         </div>
     </div>
     <div class="information">
         <div class="information-header">
-            <p class="header-title">Upload Result</p>
+            <p class="header-title">Delete a Result</p>
             <img draggable="false" class="close-information" src="imgs/close.png">
         </div>
-        <div>
-            
+        <div class="wrapper">
+            <p class="subhead">Result to Delete</p>
+            <div class="process-result-form">
+                <div>
+                    <label for="candidate-name">Student's name</label><br>
+                    <select id="candidate-name">
+                        <% resultLabels.forEach(label => { %>
+                            <option> <%= label.toUpperCase() %> </option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div>
+                    <label for="year-taken">Examination Year</label><br>
+                    <select id="year-taken">
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="term-taken">Examination term<sup>*</sup></label><br>
+                    <select id="term-taken">
+                        <option>First term</option>
+                        <option>Second term</option>
+                        <option>Third term</option>
+                    </select>
+                </div>
+            </div>
+            <button delete-result>Delete Result</button>
         </div>
     </div>
         
-
 <%- include('./partials/footer.ejs') %>
