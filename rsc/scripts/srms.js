@@ -1,9 +1,3 @@
-const windowWidth = document.querySelector('[window-width]');
-
-window.addEventListener('resize', () => {
-    windowWidth.innerText = window.innerWidth;
-});
-
 function extractSelectedSubjects(checkboxesContainer) {
     var tempSubjects = []
     for (var i = 0; i < checkboxesContainer.length; i++) {
@@ -103,7 +97,12 @@ const uploadResultButton = document.querySelector('[upload-result]');
 const studentNameField = document.getElementById('student-name');
 const examinationYearField = document.getElementById('examination-year');
 const examinationTermField = document.getElementById('examination-term');
+const sideLinks = document.querySelectorAll('.side-link');
+const informations = document.querySelectorAll('.information');
+const navigationsSide = document.querySelector('.navigations-side');
+const closeInformationIcons = document.querySelectorAll('.close-information');
 
+var isSideOpen = false;
 var studentName;
 var examinationYear;
 var examinationTerm;
@@ -114,6 +113,14 @@ var testScores = [];
 var examScores = [];
 var totalScores = [];
 var grades = [];
+
+sideLinks.forEach((link, index) => {
+    link.addEventListener('click', () => {
+        informations[index].style.display = 'block';
+        navigationsSide.style.left = '-100rem';
+        isNagivationsSideOpen = false;
+    });
+});
 
 uploadResultButton.addEventListener('click', () => {
     uploadResultButton.style.pointerEvents = 'none';
@@ -166,14 +173,31 @@ selectSubjectsButton.addEventListener('click', () => {
 
 unhideNavigationSideIcon.addEventListener('click', () => {
     navigationSide.style.left = '0';
+    isSideOpen = true;
 });
 
 hideNavigationSideIcon.addEventListener('click', () => {
     navigationSide.style.left = '-40rem';
+    isSideOpen = false;
 });
 
 sideNavigationLinks.forEach(link => {
     link.addEventListener('click', () => {
         navigationSide.style.left = '-40rem';
+        isSideOpen = false;
     });
+});
+
+closeInformationIcons.forEach((icon, index) => {
+    icon.addEventListener('click', () => {
+        informations[index].style.display = 'none';
+    });
+});
+
+document.addEventListener('click', () => {
+    if (isSideOpen) {
+        navigationSide.style.left = '0';
+        isSideOpen = false;
+    } else 
+    navigationSide.style.left = '-100rem';
 });

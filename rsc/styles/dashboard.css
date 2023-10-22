@@ -55,34 +55,50 @@ a {
     text-decoration: none;
 }
 
-.dashboard-text {
-    background: #160642;
+.dashboard-header {
+    position: relative;
+    background: #363049;
     color: #E7E7E7;
     padding: 0.5rem;
 }
 
+.menu-icon,
+.close-menu {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    right: 1rem;
+    cursor: pointer;
+    transition: 0.5s ease all;
+}
+
+.menu-icon {
+    top: 1rem;
+    width: 2.5rem;
+}
+
+.close-menu:hover {
+    transform: rotate(90deg)
+;}
+
 .dashboard-page-sides {
-    display: flex;
+    position: relative;
 }
 
 .navigations-side {
-    width: 30%;
-    height: 88vh;
+    position: absolute;
+    left: -100rem;
+    width: 25%;
+    height: 100vh;
     padding: 1rem;
-    background: #362134;
+    background: #362134B0;
+    transition: 0.5s ease all;
 }
 
 .content-side {
-    width: 70%;
-    max-height: 88vh;
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    overflow-y: scroll;
-}
-
-.content-side::-webkit-scrollbar {
-    display: none;
 }
 
 .information {
