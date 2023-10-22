@@ -16,6 +16,9 @@
     .navigations-side {
         width: 35%;
     }
+    .subjects-scores-table {
+	overflow-x: scroll;
+    }
     .welcome-text {
         font-size: 2.5rem;
     }
@@ -56,6 +59,9 @@
         width: 8rem;
         height: 3rem;
         font-size: 0.8rem;
+    }
+    .result-update {
+	overflow-x: scroll;
     }
 }
 
