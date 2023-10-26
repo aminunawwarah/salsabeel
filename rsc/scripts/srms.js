@@ -6,10 +6,8 @@ function extractSelectedSubjects(checkboxesContainer) {
     }
     selectedSubjects = tempSubjects.filter(subject => subject !== undefined);
     
-    if (selectedSubjects.length < 1)
-        alert('Please select the subjects.')
-    else if (selectedSubjects.length < 5)
-        alert('Please select a minimum of 5 subjects.');
+    if (selectedSubjects.length < 5)
+        showNotificationBox('Low Subjects', 'When you click the select button, the number of the selected subjects is checked. This is ensure that the required minimum number of subjects is selected. You need to select a minimum of 5 subjects.');
     else {
         subjectScoresTable.style.display = 'block';
         insertTableContent(selectedSubjects);
@@ -141,10 +139,10 @@ uploadResultButton.addEventListener('click', () => {
         headers: { 'Content-Type': 'application/json'}
     }).then(res => res.json()).then(({ exists, uploaded }) => {
         if (exists)
-            alert('Upload failed because the result already exists. Instead, update the result for the student.');   
+            showNotificationBox('Upload Failed', "Upload failed because a result with the same name already exists. There can't be more than one result with the same name. Instead, update the result for the student.");   
         else if (uploaded)
-            alert('The result has been successfully uploaded.');
-    });
+            showNotificationBox('Uploaded Successfully', 'The result has been successfully uploaded. You can update it if you need to make changes to it.');
+    }).catch(err => showNotificationBox('Upload Error', `The result upload returned with the error: ${err}`));
     uploadResultButton.style.pointerEvents = 'all';
 });
 
@@ -154,13 +152,13 @@ processResultButton.addEventListener('click', () => {
     examinationTerm = examinationTermField.value;
 
     if (!studentName)
-        alert("Enter the student's name.");
+        showNotificationBox('Student Name Missing', 'The student name is required in order to continue with the result processing. It is also used to give the result a name in the database.');
     else if (selectedSubjects.length < 5)
-        alert('Please select a minumum of 5 subjects.');
+    showNotificationBox('Low Subjects', 'When you click on the select button, the number of the selected subjects is checked. This is ensure that the required minimum number of subjects is selected. You need to select a minimum of 5 subjects.');
     else {
         calculateScores();
         if (testScores.some(score => score > 40 || score < 0) || examScores.some(score => score > 60 || score < 0)) {
-            alert('CA scores must not be greater than 40 and examination scores must not be greater than 60. Also, all scores must not be less than 0.');
+            showNotificationBox('Out of Range', 'When you click on the process button, the scores you entered are validated. All scores must not be less 0. Furthermore, CA scores should not exceed 40 and exam scores should not exceed 60.');
             return;
         }
         previewResult();

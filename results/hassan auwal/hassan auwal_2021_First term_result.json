@@ -1,0 +1,42 @@
+{
+	"studentName": "hassan auwal",
+	"examinationYear": "2021",
+	"examinationTerm": "First term",
+	"selectedSubjects": [
+		"Basic Science",
+		"Computer Studies",
+		"Fiqh",
+		"Home Economics",
+		"Mathematics"
+	],
+	"totalScores": [
+		81,
+		83,
+		85,
+		83,
+		89
+	],
+	"testScores": [
+		32,
+		34,
+		35,
+		32,
+		36
+	],
+	"examScores": [
+		49,
+		49,
+		50,
+		51,
+		53
+	],
+	"grades": [
+		"A",
+		"A",
+		"A",
+		"A",
+		"A"
+	],
+	"average": 84.2,
+	"total": 421
+}

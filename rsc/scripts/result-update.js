@@ -9,13 +9,13 @@ function fetchResult() {
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()).then(({ found, resultData }) => {
         if (!found)
-            alert('The result is not found.')
+            showNotificationBox('Not Found', 'The examination result fetch requires the name of the student, the examination term, and the examination year in order to be successfuly. Ensure that you provide the correct information.');
         else {
             resultUpdate.style.display = 'block';
             resultDataValue = resultData;
             showResultData(resultData);
         }
-    }).catch(err => alert('Something went wrong and the operation did not complete successfully.'));
+    }).catch(err => showNotificationBox('Fetch Failed', 'Something went wrong and the operation did not complete successfully. This may be due to the internet connection.'));
 }
 
 function showResultData(data) {
@@ -126,10 +126,10 @@ function uploadUpdatedResult(data) {
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()).then(({ updated }) => {
         if (!updated)
-            alert('The result is not updated.');
+            showNotificationBox('Update Failed', 'The result is not updated due to some errors from the server. Ensure that the information you provided are correct.');
         else
-            alert('The result is updated successfully.');
-    }).catch(err => alert('Something went wrong and the operation did not complete successfully.'));
+            showNotificationBox('Updated', 'The result has been updated successfully.');
+    }).catch(err => showNotificationBox('Update Failed', 'Something went wrong and the operation did not complete successfully. This may be due to the internet connection.'));
 }
 
 const nameField = document.getElementById('name');

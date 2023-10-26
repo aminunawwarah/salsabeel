@@ -20,7 +20,7 @@ function start() {
     app.use(express.json());
     app.use(express.static('rsc'));
     app.set('view engine', 'ejs');
-    app.listen(process.env.PORT || 3000);
+    app.listen(3000);
     
     app.get('/', (req, res) => res.render('index'));
     app.get('/contact', (req, res) => res.render('contact'));
@@ -89,7 +89,7 @@ function start() {
         resultFetchHandler.fetchResult(req, res);
     });
 
-    app.post('/file_upload', (req, res) => {
+    app.put('/file_upload', (req, res) => {
         fileUploadHandler.uploadFile(req, res);
     });
 

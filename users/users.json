@@ -33,5 +33,12 @@
 		"email": "adnan@noor.com",
 		"number": "445664433",
 		"type": "parent"
+	},
+	{
+		"username": "sulaiman umar",
+		"password": "sule",
+		"email": "sulaiman99@noor.com",
+		"number": "344532233",
+		"type": "parent"
 	}
 ]

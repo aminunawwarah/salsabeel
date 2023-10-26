@@ -9,10 +9,10 @@ function deleteResult() {
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()).then(({ deleted }) => {
         if (!deleted)
-            alert('Failed to delete the result because it does not exist.');
+            showNotificationBox('Delete Failed', 'Failed to delete the result because the result does not exist.')
         else
-            alert(`The ${examinationYear} ${examinationTerm} result of ${studentName.toUpperCase()} has been deleted successfully.`);
-    }).catch('Unable to perform the operation.');
+            showNotificationBox('Deleted Successfully', `The ${examinationYear} ${examinationTerm} result of ${studentName.toUpperCase()} has been deleted successfully.`);
+    }).catch((err) => showNotificationBox('Operation Failed', 'Unable to perform the operation.'));
 }
 
 const candidateNameField = document.getElementById('candidate-name');

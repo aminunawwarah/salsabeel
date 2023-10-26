@@ -1,0 +1,52 @@
+{
+	"studentName": "haruna abdulaziz",
+	"examinationYear": "2021",
+	"examinationTerm": "First term",
+	"total": 545,
+	"average": 77.85714285714286,
+	"selectedSubjects": [
+		"Agricultural Science",
+		"Civic Education",
+		"Computer Studies",
+		"Fiqh",
+		"Islamic Studies",
+		"Mathematics",
+		"Tajweed"
+	],
+	"testScores": [
+		32,
+		28,
+		31,
+		26,
+		33,
+		30,
+		31
+	],
+	"examScores": [
+		48,
+		45,
+		48,
+		52,
+		51,
+		42,
+		48
+	],
+	"totalScores": [
+		80,
+		73,
+		79,
+		78,
+		84,
+		72,
+		79
+	],
+	"grades": [
+		"A",
+		"A",
+		"A",
+		"A",
+		"A",
+		"A",
+		"A"
+	]
+}

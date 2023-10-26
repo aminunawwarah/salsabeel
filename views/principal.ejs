@@ -16,6 +16,7 @@
                 <li class="side-link">Remove a user</li>
                 <li class="side-link">SRMS</li>
                 <li class="side-link">Send a message</li>
+                <li class="side-link">Submissions</li>
             </ul>
         </div>
         <div class="content-side">
@@ -106,7 +107,7 @@
                     <img draggable="false" class="close-information" src="imgs/close.png">
                 </div>
                 <div>
-                    <p>Click <a href="register_student">here</a> to enter the SRMS.</p>
+                    <p>Click <a href="results_management_system">here</a> to enter the SRMS.</p>
                 </div>
             </div>
             <div class="information">
@@ -130,6 +131,26 @@
                     <p>Message content</p>
                     <textarea class="message-content" placeholder="Type your message here..."></textarea><br>
                     <button send-message>Send Message</button>
+                </div>
+            </div>
+            <div class="information">
+                <div class="information-header">
+                    <p class="header-title">Submissions</p>
+                    <img draggable="false" class="close-information" src="imgs/close.png">
+                </div>
+                <div>
+                    <% if (!submissionRequired) { %>
+                        <p>You are not required to submit anything.</p>
+                    <% } else { %>
+                        <p class="subhead"> <%= text %> </p>
+                        <p>Please submit the required document(s) before <%= date %>.</p>
+                    
+                        <input upload-field type="file" accept=".docx, .doc, .pdf" hidden>
+                        <p filename></p>
+                        <button select-file>Select File</button>
+                        <button upload-file>Upload</button>
+                    
+                    <% } %>
                 </div>
             </div>
         </div>

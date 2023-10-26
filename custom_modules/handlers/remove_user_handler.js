@@ -15,19 +15,23 @@ function removeUserFromFile(dir, element) {
 }
 
 function removeDirectory(dir) {
-    const files = fs.readdirSync(dir);
+    if (fs.existsSync(dir)) {
+        const files = fs.readdirSync(dir);
+        
+        if (files.length > 0) {
+            for (var i = 0; i < files.length; i++) {
+                fs.unlink(`${dir}/${files[i]}`, (err) => {
+                    if (err)
+                        throw new Error('The file could not be removed.');
+                });
+            }
     
-    for (var i = 0; i < files.length; i++) {
-        fs.unlink(`${dir}/${files[i]}`, (err) => {
-            if (err)
-                throw new Error('The file could not be removed.');
-        });
+            fs.rmdir(dir, (err) => {
+                if (err)
+                    throw new Error('The directory could not be removed.');
+            });
+        }
     }
-
-    fs.rmdir(dir, (err) => {
-        if (err)
-            throw new Error('The directory could not be removed.');
-    });
 }
 
 function removeUser(req, res) {
@@ -48,6 +52,7 @@ function removeUser(req, res) {
             if (children.length > 0) {
                 for (var i = 0; i < children.length; i++) {
                     removeDirectory(`./classes/${children[i].studentClass}/${children[i].studentName}`);
+                    removeDirectory(`./results/${children[i].studentName}`);
                 }
             }   
 

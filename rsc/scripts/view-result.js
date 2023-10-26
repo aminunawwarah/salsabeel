@@ -9,12 +9,12 @@ function retrieveResult() {
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()).then(({ obtained, resultData }) => {
         if (!obtained)
-            alert('The result is not found.');
+        showNotificationBox('Fetch Failed', 'The examination result fetch requires the name of the student, the examination term, and the examination year in order to be successfuly. Ensure that you provide the correct information.')
         else {
             displayInformation(resultData);
             resultInformation = resultData;
         }
-    }).catch(err => alert(err.message));
+    }).catch(err => showNotificationBox('Error', 'Your internet connection may be down. Check the connection and try again.'));
 }
 
 function displayInformation(data) {

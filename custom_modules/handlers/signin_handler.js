@@ -39,19 +39,30 @@ function validateSigin(req, res) {
                                             fc.fetchChildren({ username, messages, res });
                                             break;
                                         case 'admin':
-                                            res.render('admin', { classes, messages });
+                                            res.render('admin', { 
+                                                classes,
+                                                messages,
+                                                submissionRequired: true, 
+                                                text: 'First term examination questions',
+                                                date: '12th October, 2021'
+                                             });
                                             break;
                                         case 'finance':
                                             res.render('finance', { 
                                                 username, 
-                                                messages, 
+                                                messages,
+                                                classes, 
                                                 submissionRequired: true, 
                                                 text: 'First term examination questions',
                                                 date: '12th October, 2021'
                                              });
                                             break;
                                         case 'principal':
-                                            res.render('principal', { classes });
+                                            res.render('principal', { 
+                                                classes,
+                                                submissionRequired: true, 
+                                                text: 'First term examination questions',
+                                                date: '12th October, 2021' });
                                             break;
                                     }
                                 }

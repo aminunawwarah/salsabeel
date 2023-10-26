@@ -64,10 +64,12 @@
                 <% } else { %>
                     <p class="subhead"> <%= text %> </p>
                     <p>Please submit the required document(s) before <%= date %>.</p>
+                
                     <input upload-field type="file" accept=".docx, .doc, .pdf" hidden>
                     <p filename></p>
                     <button select-file>Select File</button>
                     <button upload-file>Upload</button>
+                
                 <% } %>
             </div>
         </div>

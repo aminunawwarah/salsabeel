@@ -2,6 +2,12 @@
     .navigations-side {
         width: 40%;
     }
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 670px) {
@@ -14,6 +20,9 @@
 }
 
 @media screen and (max-width: 500px) {
+    body {
+        font-size: 17px;
+    }
     .navigations-side {
         width: 60%;
     }

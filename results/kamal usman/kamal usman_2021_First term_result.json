@@ -1,0 +1,42 @@
+{
+	"studentName": "kamal usman",
+	"examinationYear": "2021",
+	"examinationTerm": "First term",
+	"selectedSubjects": [
+		"Civic Education",
+		"Computer Studies",
+		"Fiqh",
+		"Hadith",
+		"Mathematics"
+	],
+	"totalScores": [
+		81,
+		86,
+		88,
+		85,
+		89
+	],
+	"testScores": [
+		32,
+		35,
+		36,
+		31,
+		37
+	],
+	"examScores": [
+		49,
+		51,
+		52,
+		54,
+		52
+	],
+	"grades": [
+		"A",
+		"A",
+		"A",
+		"A",
+		"A"
+	],
+	"average": 85.8,
+	"total": 429
+}

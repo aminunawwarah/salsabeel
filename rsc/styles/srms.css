@@ -83,18 +83,15 @@ button:hover {
 .result-information,
 .result-preview,
 .result-view {
-    display: none
-}
-
-.subjects-scores-table,
-.result-preview,
-.result-update {
+    display: none;
     overflow-x: scroll;
 }
 
 .subjects-scores-table::-webkit-scrollbar,
 .result-preview::-webkit-scrollbar,
-.result-update::-webkit-scrollbar {
+.result-update::-webkit-scrollbar,
+.result-information::-webkit-scrollbar,
+.result-view::-webkit-scrollbar {
     display: none;
 }
 

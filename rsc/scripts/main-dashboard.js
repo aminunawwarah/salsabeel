@@ -4,6 +4,7 @@ const closeInformationIcons = document.querySelectorAll('.close-information');
 const closeMenuIcon = document.querySelector('.close-menu');
 const menuIcon = document.querySelector('.menu-icon');
 const navigationsSide = document.querySelector('.navigations-side');
+
 var isNagivationsSideOpen = false;
 
 sideLinks.forEach((link, index) => {

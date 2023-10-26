@@ -14,6 +14,9 @@
                 <li class="side-link">Add a new student</li>
                 <li class="side-link">Send a message</li>
                 <li class="side-link">Messages</li>
+                <li class="side-link">Submissions</li>
+                <li class="side-link">SRMS</li>
+                
             </ul>
         </div>
         <div class="content-side">
@@ -94,6 +97,35 @@
                     } else { %> 
                         <p class="no-message">No messages to show.</p>
                     <% } %>
+                </div>
+            </div>
+            <div class="information">
+                <div class="information-header">
+                    <p class="header-title">Submissions</p>
+                    <img draggable="false" class="close-information" src="imgs/close.png">
+                </div>
+                <div>
+                    <% if (!submissionRequired) { %>
+                        <p>You are not required to submit anything.</p>
+                    <% } else { %>
+                        <p class="subhead"> <%= text %> </p>
+                        <p>Please submit the required document(s) before <%= date %>.</p>
+                    
+                        <input upload-field type="file" accept=".docx, .doc, .pdf" hidden>
+                        <p filename></p>
+                        <button select-file>Select File</button>
+                        <button upload-file>Upload</button>
+                    
+                    <% } %>
+                </div>
+            </div>
+            <div class="information">
+                <div class="information-header">
+                    <p class="header-title">Students' Result Management System</p>
+                    <img draggable="false" class="close-information" src="imgs/close.png">
+                </div>
+                <div>
+                    <p>Click <a href="results_management_system">here</a> to enter the SRMS.</p>
                 </div>
             </div>
         </div>
